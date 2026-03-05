@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cafe Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('img/cafe-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: clamp(8vh, 10vw, 13vh);
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #fd671a, #fff);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-tagline {
+            font-size: 1.5em;
+            color: #fd671a;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fd671a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #fd671a, #ff8c42);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .story-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #ddd;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .highlight-quote {
+            font-size: 1.4em;
+            color: #fd671a;
+            font-style: italic;
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            border-left: 4px solid #fd671a;
+            background: rgba(253, 103, 26, 0.1);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+
+        .highlight-quote::before {
+            content: '"';
+            font-size: 4em;
+            color: #fd671a;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #333;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(253, 103, 26, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #fd671a;
+            box-shadow: 0 20px 40px rgba(253, 103, 26, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            color: #fd671a;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-icons {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto 10px auto;
+            margin-top: -5px;
+            margin-bottom: 15px;
+        }
+
+        .feature-icons2 {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto 10px auto;
+            margin-top: -5px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .feature-description {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+
+        .contact-section {
+            background: #111;
+            padding: 80px 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 30px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            border: 2px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #fd671a;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(253, 103, 26, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            color: #fd671a;
+            margin-bottom: 20px;
+        }
+
+        .contact-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .contact-detail {
+            color: #ccc;
+            font-size: 1.1em;
+        }
+
+        .contact-detail a {
+            color: #fd671a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail a:hover {
+            color: #ff8c42;
+        }
+
+        .vision-section {
+            background: linear-gradient(135deg, rgba(253, 103, 26, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .vision-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vision-year {
+            display: inline-block;
+            background: #fd671a;
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .about-hero {
+                background-attachment: scroll;
+                min-height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-tagline {
+                font-size: 1.2em;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .story-content {
+                font-size: 1.1em;
+            }
+
+            .highlight-quote {
+                font-size: 1.2em;
+                margin: 30px 0;
+                padding: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero-tagline {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .story-content {
+                font-size: 1em;
+            }
+
+            .highlight-quote {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+
+            .highlight-quote::before {
+                font-size: 3em;
+                top: -5px;
+                left: 15px;
+            }
+
+            .feature-icon {
+                font-size: 2.5em;
+            }
+
+            .feature-title {
+                font-size: 1.3em;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-item {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVBAR (from index.html) ========== -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/log.png" alt="Cafe Connect Logo">
+            </a>
+        </div>
+        <ul class="nav_items" id="nav_links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html#menu">EAT | DRINK</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="index.html#reservation" class="btn">RESERVATION</a></li>
+        </ul>
+        <div class="nav_menu" id="menu_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>About Cafe Connect</h1>
+            <p class="hero-tagline">"Where Conversations Find Their Home"</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-content">
+                <p>Our story begins with a simple idea – to create a place where conversations flow as easily as the coffee being poured. At Cafe Connect, the aroma of freshly brewed specialty coffee mingles with laughter, stories, and the spark of new ideas.</p>
+            </div>
+            
+            <div class="highlight-quote">
+                Where connections are brewed stronger than the coffee itself.
+            </div>
+
+            <div class="story-content">
+                <p>But coffee is only the beginning. Cafe Connect is a space where flavor, creativity, and celebration come together. From our signature crab dishes that bring the taste of the sea to your plate, to the playful artistry of rolled ice cream crafted before your eyes, every experience here is designed to delight.</p>
+                
+                <p style="margin-top: 30px;">We go beyond being a café — offering special rooms for karaoke nights, birthday parties, and private meetings, so your moments with us can be as memorable as they are meaningful. With our BYOB setup, we welcome you to pair your favorite drinks with our dishes, making each gathering uniquely yours.</p>
+                
+                <p style="margin-top: 30px;">Just like the great coffee houses of history, Cafe Connect is more than a café. It's a community hub — a cozy corner for dreamers, a meeting point for innovators, and a retreat for anyone who wants to pause, celebrate, and savor life. With every cup, every dish, and every conversation, we're crafting moments that matter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-year">Founded in 2025</div>
+                <h2 class="section-title" style="color: #fff; margin-bottom: 30px;">Our Vision</h2>
+                <div class="story-content">
+                    <p>Cafe Connect was built with one vision: to create a modern gathering place in the heart of Kiribathgoda. Much like the timeless coffee houses of old, we are more than just a café – we are a space where people come together to share ideas, spark creativity, and build connections.</p>
+                    
+                    <p style="margin-top: 30px;">Every cup we serve is an invitation to slow down, engage, and connect – with yourself, with others, and with the community around you. Cafe Connect is not just about coffee; it's about conversation, culture, and creating moments worth remembering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Us Special Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Special</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-coffee feature-icon"></i>
+                    <h3 class="feature-title">Specialty Coffee</h3>
+                    <p class="feature-description">Coffee is more than a drink – it's an experience that grows with every pour. From carefully sourced beans to evolving brewing methods, every sip is an invitation to explore new flavors while honoring the timeless ritual of a shared table.</p>
+                </div>
+
+                <div class="feature-card">
+                     <img src="img/icons8-crab-96.png" alt="Crab Icon" class="feature-icons">
+                    <h3 class="feature-title">Signature Crab Dishes</h3>
+                    <p class="feature-description">Our culinary passion doesn't stop at coffee. Cafe Connect is home to indulgent crab dishes that bring the flavors of the sea right to your plate. Fresh, flavorful, and crafted with care — it's a dining experience you won't forget.</p>
+                </div>
+
+                <div class="feature-card">
+                   <img src="img/roll ice cream.png" alt="Rolled Ice Cream Icon" class="feature-icons2">
+                    <h3 class="feature-title">Rolled Ice Cream</h3>
+                    <p class="feature-description">A swirl of delight, crafted before your eyes. Our rolled ice creams are as much a performance as they are a treat — blending creamy textures, playful flavors, and artistry in motion for a dessert that's as fun to watch as it is to savor.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-microphone feature-icon"></i>
+                    <h3 class="feature-title">Special Rooms for Every Occasion</h3>
+                    <p class="feature-description">Whether it's a birthday party, karaoke night with friends, or a private business meeting, our special rooms are designed to make every gathering memorable. A perfect blend of comfort, privacy, and vibrance — tailored to your needs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-wine-bottle feature-icon"></i>
+                    <h3 class="feature-title">BYOB Setup</h3>
+                    <p class="feature-description">We believe great company pairs perfectly with great food. That's why Cafe Connect offers a BYOB setup, giving you the freedom to bring your favorite drinks and enjoy them alongside our signature dishes and experiences.</p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-heart feature-icon"></i>
+                    <h3 class="feature-title">The Cafe Connect Experience</h3>
+                    <p class="feature-description">More than just a café — it's a space to dine, celebrate, create, and connect. Every moment with us is designed to feel special, because it's not just about what's on the table — it's about the memories created around it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elfsight Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <section id="reviews">
+        <div class="elfsight-app-71a09f2d-dbc8-4587-8833-2bcd4a4fee17"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3 class="contact-title">Email Us</h3>
+                    <p class="contact-detail">
+                        <a href="mailto:Connect@cafeconnect.lk">Connect@cafeconnect.lk</a>
+                    </p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <h3 class="contact-title">Call Us</h3>
+                    <p class="contact-detail">
+                        <a href="tel:+94112273573">+94 11 227 3573</a>
+                    </p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock contact-icon"></i>
+                    <h3 class="contact-title">Open Hours</h3>
+                    <p class="contact-detail">Every Day<br>10:00 a.m. - 10:00 p.m.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const menuBtn = document.getElementById('menu_btn');
+        const navLinks = document.getElementById('nav_links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        });
+
+        // Add smooth scroll behavior and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.feature-card, .contact-item, .story-content').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
